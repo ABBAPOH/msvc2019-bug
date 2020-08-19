@@ -1,0 +1,26 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: Build with msvc2019
+    runs-on: windows-latest
+#    env:
+#      BUILD_OPTIONS: "modules.cpp.compilerWrapper:ccache modules.qbs.debugInformation:true modules.qbsbuildconfig.enableAddressSanitizer:false modules.qbsbuildconfig.enableBundledQt:true"
+#      QTEST_FUNCTION_TIMEOUT: 9000000
+#      WITH_TESTS: 0
+    steps:
+    - uses: actions/checkout@v1
+#    - name: Add msbuild to PATH
+#      uses: microsoft/setup-msbuild@v1.0.1
+    - name: Run CMake
+      run: mkdir build && cd build && cmake ..
+#      run: cmake -G"NMake Makefiles" .
+    - name: Build
+      run: cmake --build build
+#    - name: Build
+#      shell: cmake -P {0}
+#      run: |
+#        set(ENV{CC} ${{ matrix.config.cc }})
+#        set(ENV{CXX} ${{ matrix.config.cxx }})
