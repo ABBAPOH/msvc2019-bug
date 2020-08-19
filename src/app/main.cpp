@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    ConsoleLogger l;
+    auto &l = ConsoleLogger::instance();
     cout << "Hello World!" << endl;
     return 0;
 }
