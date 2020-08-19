@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string_view>
+
 #if defined(_WIN32) || defined(WIN32)
 #    define MY_DECL_EXPORT __declspec(dllexport)
 #    define MY_DECL_IMPORT __declspec(dllimport)
@@ -18,4 +20,8 @@ class MY_EXPORT Logger
 {
 public:
     Logger();
+
+    void log(std::string_view s);
+
+    static void useLogger();
 };

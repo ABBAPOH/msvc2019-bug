@@ -6,6 +6,9 @@ using namespace std;
 int main()
 {
     auto &l = ConsoleLogger::instance();
-    cout << "Hello World!" << endl;
+    l.log("hello from main");
+
+    Logger::useLogger();
+//    cout << "Hello World!" << endl;
     return 0;
 }
